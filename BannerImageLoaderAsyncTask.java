@@ -1,4 +1,4 @@
-package com.banglapuzzle.medisquare.extension.helpers.net;
+package com.example.project;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -34,7 +34,7 @@ public class BannerImageLoaderAsyncTask extends AsyncTask<Void, Void, String> {
 
         try {
 
-            URL categoryApi = new URL("https://medi.medisquare.xyz/api/home/banner");
+            URL categoryApi = new URL("");
             InputStream responseInputStream;
             BufferedReader bufferedReader;
             StringBuilder responseStringBuilder = new StringBuilder();
@@ -86,7 +86,7 @@ public class BannerImageLoaderAsyncTask extends AsyncTask<Void, Void, String> {
 
                     JSONObject ignoredObject= jsonArray.getJSONObject(i);
 
-                    String imageUri = "https://medisquare.xyz/assets/backend/images/home/" + ignoredObject.getString("image");
+                    String imageUri = ignoredObject.getString("image");
                     int sec = 5;
 
                     AppLists.banners.add( new Banner( imageUri, sec ) );
@@ -99,8 +99,6 @@ public class BannerImageLoaderAsyncTask extends AsyncTask<Void, Void, String> {
             }
 
 
-            //loading location data
-            new LocationAsyncTask(mContext).execute();
         }
 
     }
