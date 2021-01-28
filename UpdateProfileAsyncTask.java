@@ -1,4 +1,4 @@
-package com.banglapuzzle.medisquare.extension.helpers.net;
+package com.example.project;
 
 import android.app.Activity;
 import android.content.Context;
@@ -47,7 +47,7 @@ public class UpdateProfileAsyncTask extends AsyncTask<String, Void,String> {
     @Override
     protected String doInBackground(String... params) {
         StringBuilder result = new StringBuilder();
-        String check_user_url = "https://medi.medisquare.xyz/api/visitor/edit/" + preferences.getId();
+        String check_user_url = "";
 
 
         String fullName = params[0];
@@ -136,20 +136,6 @@ public class UpdateProfileAsyncTask extends AsyncTask<String, Void,String> {
                     provider = JO.getString("provider");
                     provider_id = JO.getString("provider_id");
 
-
-                    //saving data to AppPreferences
-                    preferences.setId(Integer.parseInt(id));
-                    preferences.setName(first_name);
-                    preferences.setPhone(phone);
-                    preferences.setEmail(email);
-                    preferences.setAddress("");
-                    preferences.setDate(date);
-                    preferences.setBlood(blood_group);
-                    preferences.setGender(gender);
-                    preferences.setVerified(isVerified);
-                    preferences.setLoginStatus(true);
-                    preferences.setImage("");
-
                     count++;
 
 
@@ -168,7 +154,6 @@ public class UpdateProfileAsyncTask extends AsyncTask<String, Void,String> {
 
         else {
 
-            //RegistrationActivity.relativeLayout.setVisibility(View.GONE);
             Toast.makeText(context, "আবার চেষ্টা করুন!", Toast.LENGTH_SHORT).show();
 
         }
